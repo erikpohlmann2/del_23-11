@@ -1,0 +1,125 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+
+    <ion-title>Carrinho</ion-title>
+    
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+	<ion-list *ngFor="let compra of compras"> 
+
+		<ion-item-sliding>
+
+			<ion-item>
+				<h1>{{compra.tipo}}</h1> 
+				<p>{{compra.sabor}}</p>
+				<p>R$ {{compra.preco}}</p>
+			</ion-item>
+
+			<ion-item-options side="right">
+
+				<button ion-button color="danger" (click)="deletarPedido(compra)">
+					<ion-icon name="trash"></ion-icon>
+				</button>
+
+			</ion-item-options>
+
+		</ion-item-sliding>
+		
+
+	</ion-list>
+	<br>
+
+	<ion-list radio-group>
+
+		<form [formGroup]="perfil">
+
+		  <ion-item>		  	
+		    <ion-label>Endereço de entrega padrão</ion-label>
+		    <ion-radio value="padrao" (ionSelect)="radio_select('padrao')"></ion-radio>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label>Entregar em outro Endereço</ion-label>
+		    <ion-radio value="outro" (ionSelect)="radio_select('naopadrao')"></ion-radio>
+		  </ion-item>
+
+		  
+		  <ion-item>
+		  	  <ion-label>Selecione o bairro...</ion-label>
+			  <ion-select name="bairro" formControlName="bairro" [disabled]="outro">
+	               <ion-option value="América"> América</ion-option>  
+					<ion-option value="Bolaxa">Bolaxa</ion-option>  
+					<ion-option value="Carreiros">Carreiros</ion-option>  
+					<ion-option value="Cassino">Cassino</ion-option>  
+					<ion-option value="Castelo Branco">Castelo Branco</ion-option>  
+					<ion-option value="Centro">Centro</ion-option>  
+					<ion-option value="Cidade Nova">Cidade Nova</ion-option>  
+					<ion-option value="Cohab I">Cohab I</ion-option>  
+					<ion-option value="Cohab II">Cohab II</ion-option>  
+					<ion-option value="Cohab Iv">Cohab Iv</ion-option>  
+					<ion-option value="Distrito Domingos Petroline">Distrito Domingos Petroline</ion-option>  
+					<ion-option value="Distrito Industrial">Distrito Industrial</ion-option>  
+					<ion-option value="Frederico Ernesto Buchholz">Frederico Ernesto Buchholz</ion-option>  
+					<ion-option value="Getúlio Vargas">Getúlio Vargas</ion-option>  
+					<ion-option value="Hidráulica">Hidráulica</ion-option>  
+					<ion-option value="Lagoa">Lagoa</ion-option>  
+					<ion-option value="Lar Gaúcho">Lar Gaúcho</ion-option>  
+					<ion-option value="Miguel de Castro Moreira">Miguel de Castro Moreira</ion-option>  
+					<ion-option value="Nossa Senhora dos Navegantes">Nossa Senhora dos Navegantes</ion-option>  
+					<ion-option value="Parque Marinha">Parque Marinha</ion-option>  
+					<ion-option value="Parque Residencial Coelho">Parque Residencial Coelho</ion-option>  
+					<ion-option value="Parque Residencial Jardim do Sol">Parque Residencial Jardim do Sol</ion-option>  
+					<ion-option value="Parque Residencial Salgado Filho">Parque Residencial Salgado Filho</ion-option>  
+					<ion-option value="Parque Residencial São Pedro">Parque Residencial São Pedro</ion-option>  
+					<ion-option value="Povo Novo">Povo Novo</ion-option>  
+					<ion-option value="Profilurbi">Profilurbi</ion-option>  
+					<ion-option value="Santa Rita de Cássia">Santa Rita de Cássia</ion-option>  
+					<ion-option value="São Paulo">São Paulo</ion-option>  
+					<ion-option value="Senandes">Senandes</ion-option>  
+					<ion-option value="Subúrbios">Subúrbios</ion-option>  
+					<ion-option value="Vila Bernardeth">Vila Bernardeth</ion-option>  
+					<ion-option value="Vila Junção">Vila Junção</ion-option>  
+					<ion-option value="Vila Maria">Vila Maria</ion-option>  
+					<ion-option value="Vila Maria José">Vila Maria José</ion-option>  
+					<ion-option value="Vila Militar">Vila Militar</ion-option>  
+					<ion-option value="Vila Nossa Senhora de Fátima">Vila Nossa Senhora de Fátima</ion-option>  
+					<ion-option value="Vila Quinta">Vila Quinta</ion-option>  
+					<ion-option value="Vila Rural">Vila Rural</ion-option>  
+					<ion-option value="Vila Santa Rosa">Vila Santa Rosa</ion-option>  
+					<ion-option value="Vila Santa Tereza">Vila Santa Tereza</ion-option>  
+					<ion-option value="Vila São João">Vila São João</ion-option>  
+					<ion-option value="Vila São Jorge">Vila São Jorge</ion-option>  
+					<ion-option value="Vila São Miguel">Vila São Miguel</ion-option>  
+					<ion-option value="Zona Portuária">Zona Portuária</ion-option>  
+	          </ion-select>
+      	  </ion-item>
+
+		  <ion-item>
+		  	<ion-input type="text" formControlName="endereco" placeholder="Digite o endereço..." [disabled]="outro"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label>Vou buscar no local</ion-label>
+		    <ion-radio value="busca" (ionSelect)="radio_select('buscar')" ></ion-radio>
+		    
+		  </ion-item>
+
+		  <button [disabled]="perfil.invalid" ion-button color="secondary" block (click)="verificaCarrinho();" (click)="gotoConfirma();">Confirmar Pedido</button>
+
+		</form> 
+
+	</ion-list>	
+
+	
+		
+
+		
+	
+
+		
+</ion-content>

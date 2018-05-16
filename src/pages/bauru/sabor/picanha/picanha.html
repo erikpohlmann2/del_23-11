@@ -1,0 +1,139 @@
+<!--
+  Generated template for the LogadoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+
+  <ion-navbar color="primary">
+  
+  	
+
+    <ion-title>Bauru de Picanha</ion-title>
+
+	    
+    
+  </ion-navbar>
+
+
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-row>
+	<ion-col col-12>
+		<img src="../../../assets/images/exemplo.jpg"/>
+	</ion-col>
+</ion-row>
+
+<!-- MONTE SEU LANCHE -->
+<form [formGroup]="cadastro" (ngSubmit)="postDados()">
+	<ion-card>
+	  <ion-card-header>
+	    Monte seu lanche:
+	  </ion-card-header>
+	  <ion-card-content>
+
+		<ion-item>
+		  <ion-label>Picanha</ion-label>
+		  <ion-checkbox color="primary" name="mt_sabor" formControlName="mt_sabor"></ion-checkbox>
+		</ion-item>
+
+		<ion-item>
+		  <ion-label>Queijo</ion-label>
+		  <ion-checkbox color="primary" name="mt_queijo" formControlName="mt_queijo"></ion-checkbox>
+		</ion-item>
+
+		<ion-item>
+		  <ion-label>Ovo</ion-label>
+		  <ion-checkbox color="primary" name="mt_ovo" formControlName="mt_ovo"></ion-checkbox>
+		</ion-item>
+
+		<ion-item>
+		  <ion-label>Tomate</ion-label>
+		  <ion-checkbox color="primary" name="mt_tomate" formControlName="mt_tomate"></ion-checkbox>
+		</ion-item>
+
+		<ion-item>
+		  <ion-label>Alface</ion-label>
+		  <ion-checkbox color="primary" name="mt_alface" formControlName="mt_alface"></ion-checkbox>
+		</ion-item>
+
+		<ion-item>
+		  <ion-label>Condimentos</ion-label>
+		  <ion-checkbox color="primary" name="mt_condimentos" formControlName="mt_condimentos"></ion-checkbox>
+		</ion-item>
+
+	  </ion-card-content>
+	  </ion-card>
+
+
+	  <!--ADICIONAIS -->
+
+	 <ion-card>
+
+	  <ion-card-header>
+	    Adicionais:
+	  </ion-card-header>
+
+	  	<ion-card-content>
+	  
+
+			<ion-item>
+			  <ion-label>Bacon + R$4,00</ion-label>
+			  <ion-checkbox color="primary" name="adc_bacon" formControlName="adc_bacon"></ion-checkbox>
+			</ion-item>
+
+			<ion-item>
+			  <ion-label>Milho + R$1,00</ion-label>
+			  <ion-checkbox color="primary" name="adc_milho" formControlName="adc_milho"></ion-checkbox>
+			</ion-item>
+
+			<ion-item>
+			  <ion-label>Ervilha + R$1,00</ion-label>
+			  <ion-checkbox color="primary" name="adc_ervilha" formControlName="adc_ervilha"></ion-checkbox>
+			</ion-item>
+
+			<ion-item>
+			  <ion-label>B. Palha + R$1,00</ion-label>
+			  <ion-checkbox color="primary" name="adc_bpalha" formControlName="adc_bpalha"></ion-checkbox>
+			</ion-item>
+
+			<ion-item>
+			  <ion-label>Queijo + R$2,00</ion-label>
+			  <ion-checkbox color="primary" name="adc_queijo" formControlName="adc_queijo"></ion-checkbox>
+			</ion-item>
+
+			<ion-item>
+			  <ion-label>Cebola + R$0,50</ion-label>
+			  <ion-checkbox color="primary" name="adc_cebola" formControlName="adc_cebola"></ion-checkbox>
+			</ion-item>
+		</ion-card-content>
+
+	</ion-card>
+
+
+	<!-- OBSERVAÇÕES -->
+
+	<ion-card>
+
+		<ion-card-header>
+	    	Observações:
+	  	</ion-card-header>
+
+		<ion-card-content>
+			<ion-textarea placeholder="Digite aqui..." name="observacoes" formControlName="observacoes"></ion-textarea>
+			
+		</ion-card-content>
+	</ion-card>
+
+	<br>
+
+	<button ion-button full (click)="showAlert();">Adicionar ao carrinho</button>
+</form>
+
+</ion-content>
+

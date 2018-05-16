@@ -1,0 +1,36 @@
+FUNÇÃO DENTRO DE ALERT
+
+showAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Olá!',
+      subTitle: 'Bem-vindo ao Delivery!',
+
+
+      buttons: [
+      {
+        text: 'Obrigado',
+        role: 'obrigado',
+        handler: () => {
+          this.gotoLogado();
+        }
+      }
+      
+    ]
+    });
+    alert.present();
+  }
+
+---------------------------------------------------
+
+FUNÇÃO TIMER
+
+import {Observable} from 'rxjs/Rx';
+
+this.timer = Observable.interval(5000).subscribe(x => {
+      this.gotoLogado();
+    });
+
+public gotoLogado(){ 
+    this.navCtrl.push(LogadoPage); 
+    this.timer.unsubscribe();
+}
